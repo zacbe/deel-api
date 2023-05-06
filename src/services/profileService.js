@@ -1,4 +1,5 @@
 // dependency imports
+const createError = require("http-errors");
 const { get } = require("lodash");
 const { Op, fn, col, literal } = require("sequelize");
 
@@ -32,11 +33,11 @@ async function updateClientBalance(userId, depositAmount, models) {
     raw: true,
   });
 
-  const totalPrice = get(contracts, "[0].Jobs.totalPrice", null);
-  if (!totalPrice) throw new Error(""); // TODO:
+  const totalPrice = get(contracts, `[0]["Jobs.totalPrice"]`, null);
+  if (!totalPrice) throw createError(400, "Could not determine a total");
 
   if (depositAmount > totalPrice * 0.25) {
-    throw new Error("Deposit amount exceeds 25% of total job price");
+    throw createError(400, "Deposit amount exceeds 25% of total job price");
   }
 
   await Profile.update(
