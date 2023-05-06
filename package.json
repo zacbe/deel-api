@@ -16,7 +16,8 @@
     "seed": "node ./scripts/seedDb.js",
     "test": "DOTENV_CONFIG_PATH=.env npx mocha --recursive tests",
     "test:watch": "DOTENV_CONFIG_PATH=.env npx mocha -w --parallel --recursive tests",
-    "test:watchGrep": "DOTENV_CONFIG_PATH=.env npx mocha -w --parallel --recursive tests --grep"
+    "test:watchGrep": "DOTENV_CONFIG_PATH=.env npx mocha -w --parallel --recursive tests --grep",
+    "swagger-autogen": "node ./swagger.js"
   },
   "devDependencies": {
     "chai": "^4.3.7",
@@ -29,7 +30,8 @@
     "nodemon": "1.19.1",
     "prettier": "^2.8.8",
     "sinon": "^15.0.4",
-    "supertest": "^6.3.3"
+    "supertest": "^6.3.3",
+    "swagger-autogen": "^2.23.1"
   },
   "engines": {
     "node": ">=10.16.3"
