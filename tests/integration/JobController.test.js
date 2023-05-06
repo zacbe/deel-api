@@ -65,7 +65,7 @@ describe("JobController", () => {
       expect(res.body.message).to.equal("Job not found");
     });
 
-    it("", async () => {
+    it("Should increase successfully pay for a given jobf", async () => {
       const user = { id: 1, firstName: "Harry" };
       const job = { id: 1, description: "work" };
 
