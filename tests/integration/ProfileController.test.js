@@ -2,7 +2,7 @@ const request = require("supertest");
 const { expect } = require("chai");
 const app = require("../../src/app");
 
-describe("JobController", () => {
+describe("ProfileController", () => {
   describe("updateProfileBalance", () => {
     it("Should return an error if user is not authenticated (401)", async () => {
       const user = { id: "no-a-user", firstName: "Harry" };

@@ -98,6 +98,17 @@ async function getBestPayedProfession(start, end, models) {
   return profession;
 }
 
+/**
+ * Retrieves the best paying clients within a specified time frame.
+ *
+ * @async
+ * @function getBestPayingClients
+ * @param {string} start - Start date of the time range in ISO format (yyyy-mm-dd).
+ * @param {string} end - End date of the time range in ISO format (yyyy-mm-dd).
+ * @param {number} limit - The maximum number of clients to retrieve.
+ * @param {Object} models - The Sequelize models object.
+ * @returns {Promise<object[]>} An array of objects of the best paying clients.
+ */
 async function getBestPayingClients(start, end, limit, models) {
   const { Profile, Contract, Job } = models;
 
