@@ -13,7 +13,7 @@ const {
 const corsOptions = {
   origin: "*", // allow all origins
   methods: ["GET", "POST"], // allow only GET and POST requests
-  allowedHeaders: ["Content-Type"], // allow Content-Type and x-api-key headers
+  allowedHeaders: ["Content-Type", "profile_id", "x-api-key"], // allow Content-Type and x-api-key headers
 };
 
 userRouter.use(cors(corsOptions));

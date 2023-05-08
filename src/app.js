@@ -4,6 +4,9 @@ const path = require("path");
 // dependency imports
 const express = require("express");
 const pino = require("pino");
+// eslint-disable-next-line node/no-unpublished-require
+const swaggerUi = require("swagger-ui-express");
+const swaggerFile = require("../swagger-output.json");
 const bodyParser = require("body-parser");
 const dotenvPath =
   typeof process.env.DOTENV_CONFIG_PATH === "string"
@@ -41,5 +44,6 @@ app.set("models", sequelize.models);
 
 app.use("/", userRouter);
 app.use("/admin", adminRouter);
+app.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 module.exports = app;

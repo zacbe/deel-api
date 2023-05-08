@@ -1,5 +1,8 @@
 /* eslint-disable node/no-unpublished-require */
-const swaggerAutogen = require("swagger-autogen")({ openapi: "3.0.0" });
+const swaggerAutogen = require("swagger-autogen")({
+  openapi: "3.0.0",
+  autoHeaders: true,
+});
 
 const doc = {
   info: {
