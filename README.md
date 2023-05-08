@@ -96,3 +96,32 @@ It would be great for example if you'd write some unit test / simple frontend de
 When you have finished the assignment, zip your repo (make sure to include .git folder) and send us the zip.
 
 Thank you and good luck! 🙏
+
+## Testing and Starting
+
+This code includes integration tests for all the available endpoints, to test it localy you need to seed the database and then use the testing commands.
+
+```bash
+# seeds the database
+$ npm run seed
+
+# run all integration tests
+$ npm run test
+```
+
+To start the server you can use `npm start`, once the server is up you can tests the endpoints via Swagger UI by navigating to `localhost/doc`.
+
+### With Docker
+
+I added the dockerfile setup which will create an image for the APP with the SQLite3 database.
+
+```bash
+# Build the docker image
+$ docker build -t <user_name>/deel-api .
+
+# Runs the docker image
+$ docker run -p <host_port>:3001 -d <user_name>/deel-api
+
+# Logs
+$ docker logs <container_id>
+```
