@@ -1,4 +1,4 @@
-FROM node:18
+FROM node:18-alpine
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -12,8 +12,11 @@ RUN npm install
 # If you are building your code for production
 # RUN npm ci --omit=dev
 
+# Install SQLite3 in the container
+RUN apk add --no-cache sqlite
+
 # Bundle app source
 COPY . .
 
 EXPOSE 3001
-CMD [ "node", "src/server.js" ]
+CMD [ "sh", "-c", "npm run seed && npm start" ]
